@@ -5,6 +5,14 @@ DIST_FOLDER=./dist
 all: FORCE ## Build package with binary distribution and config
 all: directory
 
+
+clean: ## Clean distribution files
+	$(GOCLEAN)
+	rm -f $(DIST_FOLDER)/certs/*
+	rm -f $(DIST_FOLDER)/logs/*
+	rm -f $(DIST_FOLDER)/bin/*
+	rm -f $(DIST_FOLDER)/arm/*
+
 directory:
 	GOOS=linux GOARCH=amd64 go build -o $(DIST_FOLDER)/bin/$@ ./main.go
 	GOOS=linux GOARCH=arm go build -o $(DIST_FOLDER)/arm/$@ ./main.go

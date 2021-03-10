@@ -1,15 +1,16 @@
 # WoST Directory Service 
 
-Golang implementation of a Directory Service plugin for the WoST Gateway.
+Golang implementation of a Directory Service plugin for the WoST Hub.
 
 ## Objective
 
-Provide a WoST Gateway plugin that lets consumers query Thing Descriptions of registered Things.
+Provide a WoST Hub plugin that lets consumers query Thing Descriptions of registered Things.
 
 ## Status
 
-This plugin is in the design phase. Currently identifying the WoT requirements for this service.
-The issue tracking is used to track design and implementation.
+The status of this plugin is Under Development.
+
+
 
 ## Audience
 
@@ -28,25 +29,41 @@ The specification covers both service discovery and a directory service. This pl
 This service is considered to be a Thing and publishes its own TD to discover and configure.
 
 
-## Installation
+
+## Build and Installation
 
 ### System Requirements
 
-### Install From Package Manager
+This plugin runs as part of the WoST hub. It has no additional requirements other than a working hub.
 
 ### Manual Installation
 
+See the hub README on plugin installation.
+
+
+### Build From Source
+
+Build with:
+```
+make all
+```
+
+The plugin can be found in dist/bin for 64bit intel or amd processors, or dist/arm for 64 bit ARM processors. Copy this to the hub bin or arm directory.
+An example configuration file is provided in config/directory.yaml. Copy this to the hub config directory.
+
+
 ## Usage
 
-Like all WoST plugins, it can be run from the commandline or via the WoST gateway.
-The plugin loads the gateway configuration and the plugin configuration to determine how to connect to the gateway and configure plugin specific settings.
+Like all WoST plugins, it can be run from the commandline or via the WoST hub.
+The plugin loads the hub configuration and the plugin configuration to determine how to connect to the hub and configure plugin specific settings.
+
+Once started consumers can use the service API to query discovered Things and subscribe to events.
 
 ### Authentication
 
-The directory service supports authentication and access control. This is essential when needing to access TD's with private information over the public internet.
+The directory service supports authentication and access control. The required authentication method is configured in the directory.yaml configuration file.
 
-### Configuration
+TODO: further detailing of authentication.
 
-Coming soon :)
 
 
